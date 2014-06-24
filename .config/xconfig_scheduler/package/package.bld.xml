@@ -7,7 +7,7 @@
         <srcFile name="package/cfg/scheduler_pe66.c"/>
     </sources>
     <configscripts>
-        <srcFile name="/home/ganesh/ti/schedulerTIKernel/scheduler.cfg"/>
+        <srcFile name="/home/ganesh/Documents/TI/finna-be-wallhack/scheduler.cfg"/>
     </configscripts>
     <makefiles>
         <srcFile name="package.mak" src="package.bld"/>
@@ -44,7 +44,7 @@
         isPartial="false"
         xCfgScript="package/cfg/scheduler_pe66.cfg"
         xCfgPrefix="package/cfg/scheduler_pe66"
-        cfgScript="/home/ganesh/ti/schedulerTIKernel/scheduler.cfg"
+        cfgScript="/home/ganesh/Documents/TI/finna-be-wallhack/scheduler.cfg"
         cfgArgs="null"
         />
     </configurations>
@@ -56,7 +56,7 @@
         profile="release"
         xCfgScript="package/cfg/scheduler_pe66.cfg"
         xCfgPrefix="package/cfg/scheduler_pe66"
-        cfgScript="/home/ganesh/ti/schedulerTIKernel/scheduler.cfg"
+        cfgScript="/home/ganesh/Documents/TI/finna-be-wallhack/scheduler.cfg"
         cfgArgs="null"
         />
     </executables>

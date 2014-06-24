@@ -7,5 +7,5 @@
 #       or equal to the generated config header
 #
 linker.cmd: package/cfg/scheduler_pe66.xdl
-	$(SED) 's"^\"\(package/cfg/scheduler_pe66cfg.cmd\)\"$""\"/home/ganesh/ti/schedulerTIKernel/.config/xconfig_scheduler/\1\""' package/cfg/scheduler_pe66.xdl > $@
+	$(SED) 's"^\"\(package/cfg/scheduler_pe66cfg.cmd\)\"$""\"/home/ganesh/Documents/TI/finna-be-wallhack/.config/xconfig_scheduler/\1\""' package/cfg/scheduler_pe66.xdl > $@
 	-$(SETDATE) -r:max package/cfg/scheduler_pe66.h compiler.opt compiler.opt.defs

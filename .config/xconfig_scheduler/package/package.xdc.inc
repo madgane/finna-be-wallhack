@@ -4,7 +4,7 @@ package/xconfig_scheduler.sch
 package/.vers_g180
 package/.vers_r170
 package/.vers_b160
-package/.xdc-A42
+package/.xdc-A32
 package/xconfig_scheduler.java
 package/xconfig_scheduler.class
 package/package_xconfig_scheduler.c

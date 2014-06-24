@@ -143,7 +143,7 @@ BIN_OUTPUTS__QUOTED += \
 all: schedulerTIKernel.out
 
 # Tool invocations
-schedulerTIKernel.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+schedulerTIKernel.out: $(OBJS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C6000 Linker'
 	"/opt/ti/c6000_7.6.0/bin/cl6x" -mv6600 --abi=eabi -O2 --define=_INLINE --define=TEN_MHZ --display_error_number --diag_warning=225 --diag_wrap=off -z -m"schedulerTIKernel.map" -i"/opt/ti/c6000_7.6.0/lib" -i"/opt/ti/c6000_7.6.0/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="schedulerTIKernel_linkInfo.xml" --rom_model -o "schedulerTIKernel.out" $(ORDERED_OBJS)

@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: '/home/ganesh/ti/schedulerTIKernel/scheduler.cfg',
+        cfgScript: '/home/ganesh/Documents/TI/finna-be-wallhack/scheduler.cfg',
         profile: 'release',
         cfgHome: 'xconfig_scheduler',
 });
@@ -40,8 +40,8 @@ else {
 }
 
 var thisObj = {
-    cfg:        '/home/ganesh/ti/schedulerTIKernel/scheduler.cfg',
-    outputPath: '/home/ganesh/ti/schedulerTIKernel/.config/xconfig_scheduler',
+    cfg:        '/home/ganesh/Documents/TI/finna-be-wallhack/scheduler.cfg',
+    outputPath: '/home/ganesh/Documents/TI/finna-be-wallhack/.config/xconfig_scheduler',
     exeName:    'scheduler' + suffix,
     exeIntName: 'scheduler' + suffix.replace('.', '_'),
     targ:       targ,
