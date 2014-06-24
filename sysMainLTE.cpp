@@ -19,31 +19,16 @@ extern "C" {
 
 xdc_Void clockISRA(xdc_UArg a0, xdc_UArg a1);
 xdc_Void clockISRB(xdc_UArg a0, xdc_UArg a1);
-
-xdc_Void lteSystemInit(xdc_UArg a0, xdc_UArg a1);
-xdc_Void displaySchedulerInfo(xdc_UArg a0, xdc_UArg a1);
-
-xdc_Void channelUpdate(xdc_UArg a0, xdc_UArg a1);
-xdc_Void schedulingForCurrentSF(xdc_UArg a0, xdc_UArg a1);
+xdc_Void clockISRC(xdc_UArg a0, xdc_UArg a1);
 
 }
 
-extern Swi_Handle swiHandleA,swiHandleB;
+extern Swi_Handle swiHandleA,swiHandleB,swiHandleC;
 
 Int main()
 { 
 	System_printf("Program Started ! \n");
 	System_flush();
-
-	lteSystemInit(0,0);
-	channelUpdate(0,0);
-	schedulingForCurrentSF(0,0);
-	displaySchedulerInfo(0,0);
-
-	exit(1);
-
-
-
 
 	BIOS_start();
     return(EXIT_SUCCESS);
@@ -61,5 +46,10 @@ xdc_Void clockISRB(xdc_UArg arg0,xdc_UArg arg1)
 	System_printf("Clock ISR running at %u \n",Clock_getTicks());
 }
 
+xdc_Void clockISRC(xdc_UArg arg0,xdc_UArg arg1)
+{
+	Swi_post(swiHandleC);
+	System_printf("Terminating ISR running at %u \n",Clock_getTicks());
+}
 
 

@@ -4,6 +4,8 @@
 DynamicMemory::DynamicMemory()
 {
 	newMemChunks = 0;
+	Error_init(&eBlock);
+	heapMemoryHandle = bufferHeap;
 	headList = (list_t *) obtainMemoryBuffer(sizeof(list_t));
 
 	headList->id = newMemChunks;
@@ -15,9 +17,6 @@ DynamicMemory::DynamicMemory()
 
 	tailList = headList;
 	tracePoint[0] = tracePoint[1] = tracePoint[2] = 0;
-
-	heapMemoryHandle = bufferHeap;
-	Error_init(&eBlock);
 }
 
 DynamicMemory::~DynamicMemory() {
@@ -27,13 +26,7 @@ DynamicMemory::~DynamicMemory() {
 
 void* DynamicMemory::obtainMemoryBuffer(uint32_t size_t)
 {
-	void *outBuffer;
-	outBuffer = Memory_alloc(heapMemoryHandle,size_t,0,&eBlock);
-
-	if (outBuffer != NULL)
-		exit(EXIT_FAILURE);
-
-	return outBuffer;
+	return Memory_alloc(heapMemoryHandle,size_t,0,&eBlock);
 }
 
 void DynamicMemory::freeMemoryBuffer(void *bufferPointer,uint32_t size_t)

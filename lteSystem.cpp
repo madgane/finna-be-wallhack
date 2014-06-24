@@ -21,9 +21,8 @@ extern Swi_Handle swiHandleA,swiHandleB;
 extern "C" {
 
 xdc_Void lteSystemInit(xdc_UArg a0, xdc_UArg a1);
-xdc_Void displaySchedulerInfo(xdc_UArg a0, xdc_UArg a1);
-
 xdc_Void channelUpdate(xdc_UArg a0, xdc_UArg a1);
+xdc_Void lteSystemTerminate(xdc_UArg a0, xdc_UArg a1);
 xdc_Void schedulingForCurrentSF(xdc_UArg a0, xdc_UArg a1);
 
 }
@@ -36,9 +35,9 @@ xdc_Void lteSystemInit(xdc_UArg a0, xdc_UArg a1)
 	char channelFileName[] = "channelDumpFile.h";
 	#endif
 
-	//while (1)
+	while (1)
 	{
-		//if (Semaphore_pend(reInitSystem,BIOS_WAIT_FOREVER))
+		if (Semaphore_pend(reInitSystem,BIOS_WAIT_FOREVER))
 		{
 			sysConfig.schedType = SUCCPROJ;
 			initializeSystem(&dlConfig,&sysConfig,cellID,g_nTransmit,g_nReceive,g_nSchedBlocks,g_nUsers);
@@ -52,7 +51,7 @@ xdc_Void channelUpdate(xdc_UArg a0,xdc_UArg a1)
 	uint16_t iUser;
 	userConfig_t *cUser;
 
-	System_printf("Running Channel Updates ! \n");
+	System_printf("Running Channel Updates %u ! \n",Clock_getTicks());
 	for (iUser = 0;iUser < g_nUsers;iUser ++)
 	{
 		cUser = createNewUserStructure(iUser,g_nReceive,10);
@@ -71,20 +70,23 @@ xdc_Void channelUpdate(xdc_UArg a0,xdc_UArg a1)
 		updateUserChannel(dlConfig.activeUsers[iUser]),leadIndex++);
 		#endif
 	}
+	System_printf("Completed Channel Updates %u ! \n",Clock_getTicks());
 }
 
 xdc_Void schedulingForCurrentSF(xdc_UArg a0,xdc_UArg a1)
 {
-	System_printf("Performing Scheduling at SF level ! \n");
+	System_printf("Performing Scheduling at SF level at %u ! \n",Clock_getTicks());
 	performUserScheduling(&sysConfig,&dlConfig);
+	System_printf("Completed Scheduling at SF level at %u ! \n",Clock_getTicks());
 }
 
 xdc_Void lteSystemTerminate(xdc_UArg a0, xdc_UArg a1)
 {
-	cleanupUsers(&dlConfig);
-}
-
-xdc_Void displaySchedulerInfo(xdc_UArg a0,xdc_UArg a1)
-{
+	System_printf("Displaying the final scheduler info ! \n");
 	displayScheduledUsers(&sysConfig,&dlConfig);
+	System_flush();
+
+	cleanupUsers(&dlConfig);
+	BIOS_exit(EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }
