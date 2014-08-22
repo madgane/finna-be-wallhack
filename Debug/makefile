@@ -23,6 +23,7 @@ $(GEN_CMDS__FLAG) \
 "./framework/frameworkFunctions.obj" \
 "./framework/memoryManagement.obj" \
 "./framework/schedulingAlgorithms.obj" \
+"../C6678.cmd" \
 -l"libc.a" \
 
 -include ../makefile.init
@@ -145,10 +146,10 @@ BIN_OUTPUTS__QUOTED += \
 all: finna-be-wallhack.out
 
 # Tool invocations
-finna-be-wallhack.out: $(OBJS) $(GEN_CMDS)
+finna-be-wallhack.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C6000 Linker'
-	"c:/ti/ccsv6/tools/compiler/c6000_7.4.8/bin/cl6x" -mv6600 --abi=eabi -g --define=TEN_MHZ --display_error_number --diag_warning=225 --diag_wrap=off -z -m"finna-be-wallhack.map" -i"c:/ti/ccsv6/tools/compiler/c6000_7.4.8/lib" -i"c:/ti/ccsv6/tools/compiler/c6000_7.4.8/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="finna-be-wallhack_linkInfo.xml" --rom_model -o "finna-be-wallhack.out" $(ORDERED_OBJS)
+	"c:/ti/ccsv6/tools/compiler/c6000_7.4.8/bin/cl6x" -mv6600 --abi=eabi -g --define=TEN_MHZ --display_error_number --diag_warning=225 --diag_wrap=off -z -m"finna-be-wallhack.map" -i"c:/ti/ccsv6/tools/compiler/c6000_7.4.8/lib" -i"c:/ti/ccsv6/tools/compiler/c6000_7.4.8/include" --reread_libs --define=CORE0 --warn_sections --display_error_number --diag_wrap=off --xml_link_info="finna-be-wallhack_linkInfo.xml" --rom_model -o "finna-be-wallhack.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -160,9 +161,8 @@ finna-be-wallhack.hex: $(EXE_OUTPUTS)
 
 # Other Targets
 clean:
-	-$(RM) $(GEN_MISC_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED)
+	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
 	-$(RM) "lteSystem.pp" "sysMainLTE.pp" "utilities\blasFunctions.pp" "utilities\lapackFunctions.pp" "sources\globalDeclarations.pp" "sources\supportingFunctions.pp" "schedulers\greedyScheduling.pp" "schedulers\pipdScheduling.pp" "schedulers\randomScheduling.pp" "schedulers\succprojScheduling.pp" "framework\displayFunctions.pp" "framework\dynamicMemory.pp" "framework\frameworkFunctions.pp" "framework\memoryManagement.pp" "framework\schedulingAlgorithms.pp" 
-	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-$(RM) "lteSystem.obj" "sysMainLTE.obj" "utilities\blasFunctions.obj" "utilities\lapackFunctions.obj" "sources\globalDeclarations.obj" "sources\supportingFunctions.obj" "schedulers\greedyScheduling.obj" "schedulers\pipdScheduling.obj" "schedulers\randomScheduling.obj" "schedulers\succprojScheduling.obj" "framework\displayFunctions.obj" "framework\dynamicMemory.obj" "framework\frameworkFunctions.obj" "framework\memoryManagement.obj" "framework\schedulingAlgorithms.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '

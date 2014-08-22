@@ -3,25 +3,17 @@
 #define DYNAMICMEMORY_H_
 
 #include "structureDefines.h"
-#include <xdc/runtime/Memory.h>
-#include <xdc/runtime/Error.h>
-
-extern xdc_runtime_IHeap_Handle bufferHeap;
 
 class DynamicMemory
 {
 
 private :
 
-	xdc_runtime_IHeap_Handle heapMemoryHandle;
-
 	uint32_t newMemChunks;
 	list_t *headList;
 	list_t *tailList;
 
-	Error_Block eBlock;
 	uint32_t tracePoint[3];
-
 	static const unsigned int scratchBufferSize = 1024;
 	short scratchpadBuffer[scratchBufferSize];
 

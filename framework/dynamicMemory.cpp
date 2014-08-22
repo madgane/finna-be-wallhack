@@ -4,8 +4,6 @@
 DynamicMemory::DynamicMemory()
 {
 	newMemChunks = 0;
-	Error_init(&eBlock);
-	heapMemoryHandle = bufferHeap;
 	headList = (list_t *) obtainMemoryBuffer(sizeof(list_t));
 
 	headList->id = newMemChunks;
@@ -26,12 +24,12 @@ DynamicMemory::~DynamicMemory() {
 
 void* DynamicMemory::obtainMemoryBuffer(uint32_t size_t)
 {
-	return Memory_alloc(heapMemoryHandle,size_t,0,&eBlock);
+	return malloc(size_t);
 }
 
 void DynamicMemory::freeMemoryBuffer(void *bufferPointer,uint32_t size_t)
 {
-	Memory_free(heapMemoryHandle,bufferPointer,size_t);
+	free(bufferPointer);
 }
 
 list_t* DynamicMemory::getEmptyList(uint32_t bufferSize)

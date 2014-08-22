@@ -9,6 +9,5 @@
 	<connection value="common/targetdb/connections/TIXDS100usb_Connection.xml"/>
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
-	<templateProperties value="id=com.ti.rtsc.SYSBIOS.example_1,type=rtsc,products=com.ti.rtsc.SYSBIOS,buildProfile=release,isHybrid=true,configuroOptions=--compileOptions &quot;-g --optimize_with_debug&quot;,"/>
-	<isTargetManual value="false"/>
+	<templateProperties value="id=com.ti.common.project.core.emptyProjectTemplate,"/>
 </projectOptions>
