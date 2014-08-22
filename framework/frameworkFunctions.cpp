@@ -118,7 +118,7 @@ void updateDLConfig_User(downlinkConfig_t *dConfig,userConfig_t *cUser)
 	{
 		if (emptyLoc == -1)
 		{
-			cout << "Emptyloc - 1" << endl;
+			cout << "User index exceeds the Array Limit !" << endl;
 			exit(EXIT_FAILURE);
 		}
 	}

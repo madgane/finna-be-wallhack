@@ -18,7 +18,7 @@
 
 /* System Limitations */
 
-#define MAX_ACTIVE_USERS 		(10)
+#define MAX_ACTIVE_USERS 		(50)
 #define MAX_MUX_USERS 			(8)
 
 #ifdef TEN_MHZ

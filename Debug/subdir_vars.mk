@@ -8,7 +8,7 @@ CPP_SRCS += \
 ../sysMainLTE.cpp 
 
 CMD_SRCS += \
-../C6678.cmd 
+../C6670.cmd 
 
 OBJS += \
 ./lteSystem.obj \

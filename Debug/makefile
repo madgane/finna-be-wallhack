@@ -23,7 +23,7 @@ $(GEN_CMDS__FLAG) \
 "./framework/frameworkFunctions.obj" \
 "./framework/memoryManagement.obj" \
 "./framework/schedulingAlgorithms.obj" \
-"../C6678.cmd" \
+"../C6670.cmd" \
 -l"libc.a" \
 
 -include ../makefile.init

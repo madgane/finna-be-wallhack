@@ -6,8 +6,8 @@
 #include "displayFunctions.h"
 
 
-uint16_t g_nUsers = 1;
-uint16_t g_nTransmit = 8,g_nReceive = 8,g_nSchedBlocks = 1;
+uint16_t g_nUsers = 50;
+uint16_t g_nTransmit = 8,g_nReceive = 8,g_nSchedBlocks = 10;
 
 void lteSystemInit();
 void channelUpdate();
