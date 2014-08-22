@@ -36,11 +36,11 @@ CPP_DEPS__QUOTED += \
 "sysMainLTE.pp" 
 
 GEN_FILES__QUOTED += \
-"configPkg/linker.cmd" \
-"configPkg/compiler.opt" 
+"configPkg\linker.cmd" \
+"configPkg\compiler.opt" 
 
 GEN_MISC_DIRS__QUOTED += \
-"configPkg/" 
+"configPkg\" 
 
 OBJS__QUOTED += \
 "lteSystem.obj" \

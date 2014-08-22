@@ -25,18 +25,18 @@ CPP_DEPS += \
 ./framework/schedulingAlgorithms.pp 
 
 CPP_DEPS__QUOTED += \
-"framework/displayFunctions.pp" \
-"framework/dynamicMemory.pp" \
-"framework/frameworkFunctions.pp" \
-"framework/memoryManagement.pp" \
-"framework/schedulingAlgorithms.pp" 
+"framework\displayFunctions.pp" \
+"framework\dynamicMemory.pp" \
+"framework\frameworkFunctions.pp" \
+"framework\memoryManagement.pp" \
+"framework\schedulingAlgorithms.pp" 
 
 OBJS__QUOTED += \
-"framework/displayFunctions.obj" \
-"framework/dynamicMemory.obj" \
-"framework/frameworkFunctions.obj" \
-"framework/memoryManagement.obj" \
-"framework/schedulingAlgorithms.obj" 
+"framework\displayFunctions.obj" \
+"framework\dynamicMemory.obj" \
+"framework\frameworkFunctions.obj" \
+"framework\memoryManagement.obj" \
+"framework\schedulingAlgorithms.obj" 
 
 CPP_SRCS__QUOTED += \
 "../framework/displayFunctions.cpp" \

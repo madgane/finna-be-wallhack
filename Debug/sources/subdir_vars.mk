@@ -16,12 +16,12 @@ CPP_DEPS += \
 ./sources/supportingFunctions.pp 
 
 CPP_DEPS__QUOTED += \
-"sources/globalDeclarations.pp" \
-"sources/supportingFunctions.pp" 
+"sources\globalDeclarations.pp" \
+"sources\supportingFunctions.pp" 
 
 OBJS__QUOTED += \
-"sources/globalDeclarations.obj" \
-"sources/supportingFunctions.obj" 
+"sources\globalDeclarations.obj" \
+"sources\supportingFunctions.obj" 
 
 CPP_SRCS__QUOTED += \
 "../sources/globalDeclarations.cpp" \

@@ -1,29 +1,29 @@
 
-XOPTS = -I"/opt/ti/xdctools_3_30_02_44_core/packages/" -Dxdc_target_types__=/opt/ti/bios_6_40_01_15/packages/ti/targets/elf/std.h -Dxdc_target_name__=C66
+XOPTS = -I"c:/ti/xdctools_3_30_03_47_core/packages/" -Dxdc_target_types__=C:/ti/bios_6_40_01_15/packages/ti/targets/elf/std.h -Dxdc_target_name__=C66
 
-vpath % /opt/ti/bios_6_40_01_15/packages/ti/sysbios/
-vpath %.c /opt/ti/xdctools_3_30_02_44_core/packages/
+vpath % C:/ti/bios_6_40_01_15/packages/ti/sysbios/
+vpath %.c c:/ti/xdctools_3_30_03_47_core/packages/
 
 CCOPTS    = -mv6600 --abi=eabi -q -mi10 -mo -pdr -pden -pds=238 -pds=880 -pds1110  --program_level_compile -o3 -g --optimize_with_debug 
 
-XDC_ROOT  = /opt/ti/xdctools_3_30_02_44_core/packages/
+XDC_ROOT  = c:/ti/xdctools_3_30_03_47_core/packages/
 
-BIOS_ROOT = /opt/ti/bios_6_40_01_15/packages/ti/sysbios/
+BIOS_ROOT = C:/ti/bios_6_40_01_15/packages/ti/sysbios/
 
 BIOS_DEFS =  -Dti_sysbios_BIOS_swiEnabled__D=TRUE -Dti_sysbios_BIOS_taskEnabled__D=TRUE -Dti_sysbios_BIOS_clockEnabled__D=TRUE -Dti_sysbios_BIOS_runtimeCreatesEnabled__D=TRUE -Dti_sysbios_hal_Hwi_DISABLE_ALL_HOOKS -Dti_sysbios_knl_Swi_DISABLE_ALL_HOOKS -Dti_sysbios_knl_Task_DISABLE_ALL_HOOKS -Dti_sysbios_BIOS_smpEnabled__D=FALSE -Dti_sysbios_Build_useHwiMacros -Dti_sysbios_knl_Swi_numPriorities__D=16 -Dti_sysbios_knl_Task_deleteTerminatedTasks__D=FALSE -Dti_sysbios_knl_Task_numPriorities__D=16 -Dti_sysbios_knl_Task_checkStackFlag__D=TRUE -Dti_sysbios_knl_Clock_TICK_SOURCE=ti_sysbios_knl_Clock_TickSource_TIMER -Dti_sysbios_knl_Clock_TICK_MODE=ti_sysbios_knl_Clock_TickMode_PERIODIC -Dti_sysbios_hal_Core_delegate_getId=ti_sysbios_hal_CoreNull_getId__E -Dti_sysbios_hal_Core_delegate_interruptCore=ti_sysbios_hal_CoreNull_interruptCore__E -Dti_sysbios_hal_Core_delegate_lock=ti_sysbios_hal_CoreNull_lock__E -Dti_sysbios_hal_Core_delegate_unlock=ti_sysbios_hal_CoreNull_unlock__E -Dti_sysbios_hal_Core_numCores__D=1 -Dti_sysbios_hal_CoreNull_numCores__D=1 -Dti_sysbios_utils_Load_taskEnabled__D=TRUE -Dti_sysbios_utils_Load_swiEnabled__D=FALSE -Dti_sysbios_family_c64p_Hwi_dispatcherSwiSupport__D=TRUE -Dti_sysbios_family_c64p_Hwi_dispatcherTaskSupport__D=TRUE -Dti_sysbios_family_c64p_Hwi_dispatcherAutoNestingSupport__D=TRUE -Dti_sysbios_family_c64p_Hwi_dispatcherIrpTrackingSupport__D=TRUE -Dti_sysbios_knl_Semaphore_supportsEvents__D=FALSE -Dti_sysbios_knl_Semaphore_supportsPriority__D=TRUE -Dxdc_runtime_Assert_DISABLE_ALL -Dti_sysbios_family_c64p_Exception_enableExternalMPC__D=FALSE -Dti_sysbios_family_c64p_Exception_enablePrint__D=TRUE
 
-BIOS_INC  = -I"/opt/ti/bios_6_40_01_15/packages/"
+BIOS_INC  = -I"C:/ti/bios_6_40_01_15/packages/"
 
-TARGET_INC = -I"/opt/ti/bios_6_40_01_15/packages/"
+TARGET_INC = -I"C:/ti/bios_6_40_01_15/packages/"
 
 INCS = $(BIOS_INC) $(TARGET_INC) 
 
-CC = /opt/ti/c6000_7.6.0/bin/cl6x -c $(CCOPTS) -I /opt/ti/c6000_7.6.0/include
-ASM = /opt/ti/c6000_7.6.0/bin/cl6x -c $(CCOPTS) -I /opt/ti/c6000_7.6.0/include
-AR = /opt/ti/c6000_7.6.0/bin/ar6x rq
+CC = c:/ti/ccsv6/tools/compiler/c6000_7.4.8/bin/cl6x -c $(CCOPTS) -I c:/ti/ccsv6/tools/compiler/c6000_7.4.8/include
+ASM = c:/ti/ccsv6/tools/compiler/c6000_7.4.8/bin/cl6x -c $(CCOPTS) -I c:/ti/ccsv6/tools/compiler/c6000_7.4.8/include
+AR = c:/ti/ccsv6/tools/compiler/c6000_7.4.8/bin/ar6x rq
 
-DEL = rm -f
-CP = cp -f
+DEL = cmd.exe /q /c del /f
+CP = cmd.exe /q /c copy /Y
 
 define RM
 	$(if $(wildcard $1),$(DEL) $1,:)

@@ -16,12 +16,12 @@ CPP_DEPS += \
 ./utilities/lapackFunctions.pp 
 
 CPP_DEPS__QUOTED += \
-"utilities/blasFunctions.pp" \
-"utilities/lapackFunctions.pp" 
+"utilities\blasFunctions.pp" \
+"utilities\lapackFunctions.pp" 
 
 OBJS__QUOTED += \
-"utilities/blasFunctions.obj" \
-"utilities/lapackFunctions.obj" 
+"utilities\blasFunctions.obj" \
+"utilities\lapackFunctions.obj" 
 
 CPP_SRCS__QUOTED += \
 "../utilities/blasFunctions.cpp" \
