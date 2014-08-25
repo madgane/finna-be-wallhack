@@ -25,4 +25,10 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>PDK_BASE</name>
+			<value>file:/C:/ti/pdk_C6670_1_1_2_6/packages/ti</value>
+		</variable>
+	</variableList>
 </projectDescription>

@@ -77,7 +77,7 @@ sk_sk_cwrap.obj: ../sk/sk_cwrap.asm makefile
 	$(ASSEMBLE) --output_file=sk_sk_cwrap.obj
 
 
-BIOS.obj: BIOS.c family/c64p/Exception.c family/c64p/Hwi.c family/c64p/Hwi_startup.c family/c64p/TimestampProvider.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Queue.c knl/Semaphore.c knl/Swi.c knl/Swi_andn.c knl/Task.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c heaps/HeapMem.c gates/GateHwi.c gates/GateMutex.c family/c66/Cache.c family/c62/TaskSupport.c family/c62/IntrinsicsSupport.c timers/timer64/Timer.c family/c64p/tci6488/TimerSupport.c makefile
+BIOS.obj: BIOS.c family/c64p/Exception.c family/c64p/Hwi.c family/c64p/Hwi_startup.c family/c64p/TimestampProvider.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Queue.c knl/Semaphore.c knl/Swi.c knl/Swi_andn.c knl/Task.c heaps/HeapMem.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c hal/Cache.c family/c66/Cache.c gates/GateHwi.c gates/GateMutex.c family/c62/TaskSupport.c family/c62/IntrinsicsSupport.c timers/timer64/Timer.c family/c64p/tci6488/TimerSupport.c makefile
 	@-$(call RM, $@)
 	@echo cle66 $< ...
 	@$(CC) $(BIOS_DEFS) $(XOPTS) $(INCS) \
@@ -94,13 +94,14 @@ BIOS.obj: BIOS.c family/c64p/Exception.c family/c64p/Hwi.c family/c64p/Hwi_start
 	$(BIOS_ROOT)knl/Swi.c \
 	$(BIOS_ROOT)knl/Swi_andn.c \
 	$(BIOS_ROOT)knl/Task.c \
+	$(BIOS_ROOT)heaps/HeapMem.c \
 	$(BIOS_ROOT)hal/Hwi.c \
 	$(BIOS_ROOT)hal/Hwi_stack.c \
 	$(BIOS_ROOT)hal/Hwi_startup.c \
-	$(BIOS_ROOT)heaps/HeapMem.c \
+	$(BIOS_ROOT)hal/Cache.c \
+	$(BIOS_ROOT)family/c66/Cache.c \
 	$(BIOS_ROOT)gates/GateHwi.c \
 	$(BIOS_ROOT)gates/GateMutex.c \
-	$(BIOS_ROOT)family/c66/Cache.c \
 	$(BIOS_ROOT)family/c62/TaskSupport.c \
 	$(BIOS_ROOT)family/c62/IntrinsicsSupport.c \
 	$(BIOS_ROOT)timers/timer64/Timer.c \
